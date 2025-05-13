@@ -1,5 +1,9 @@
 # Cardiomegaly X-ray Classifier
 
+![image](https://github.com/user-attachments/assets/c897bb4e-dc9e-4d80-b159-0760a65ca12e)
+![image](https://github.com/user-attachments/assets/3f04b19f-6e1a-49c2-9e51-259b12626594)
+
+
 A professional web application that uses artificial intelligence to analyze chest X-ray images and detect signs of cardiomegaly (enlarged heart).
 
 ## Features
