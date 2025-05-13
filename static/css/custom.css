@@ -1,0 +1,470 @@
+/* Custom styling for Cardiomegaly Classifier */
+
+:root {
+    /* Light theme colors */
+    --primary-color: #1a73e8;
+    --primary-dark: #0d62d0;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --text-muted: #6c757d;
+    --light-gray: #e0e0e0;
+    --card-bg: #ffffff;
+    --border-color: #e5e5e5;
+    --success-color: #188038;
+    --danger-color: #d93025;
+    --info-color: #4285f4;
+    --body-bg: #f5f7fa;
+    --navbar-bg: #ffffff;
+    --footer-bg: #f8f9fa;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --medical-blue: #1a73e8;
+    --medical-light-blue: #e8f0fe;
+    --medical-dark-gray: #444;
+    --medical-red: #d93025;
+    --medical-green: #188038;
+    --preview-bg: #f8f9fa;
+    --preview-border: #e0e0e0;
+    --input-bg: #ffffff;
+    --input-border: #ced4da;
+    --modal-bg: #ffffff;
+    --alert-bg: #f8f9fa;
+    --overlay-color: rgba(255, 255, 255, 0.85);
+    --card-opacity: 0.95;
+
+    /* RGB values for rgba background opacity */
+    --card-bg-rgb: 255, 255, 255;
+    --navbar-bg-rgb: 255, 255, 255;
+    --footer-bg-rgb: 248, 249, 250;
+}
+
+[data-bs-theme="dark"] {
+    /* Dark theme colors */
+    --primary-color: #8ab4f8;
+    --primary-dark: #669df6;
+    --secondary-color: #2d2d2d;
+    --text-color: #e0e0e0;
+    --text-muted: #adbac7;
+    --light-gray: #4a4a4a;
+    --card-bg: #2d2d2d;
+    --border-color: #444444;
+    --success-color: #81c995;
+    --danger-color: #f28b82;
+    --info-color: #8ab4f8;
+    --body-bg: #1a1a1a;
+    --navbar-bg: #1f1f1f;
+    --footer-bg: #1f1f1f;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --medical-blue: #8ab4f8;
+    --medical-light-blue: #32404d;
+    --medical-dark-gray: #cccccc;
+    --medical-red: #f28b82;
+    --medical-green: #81c995;
+    --preview-bg: #2d2d2d;
+    --preview-border: #444444;
+    --input-bg: #333333;
+    --input-border: #555555;
+    --modal-bg: #2d2d2d;
+    --alert-bg: #2d2d2d;
+    --overlay-color: rgba(0, 0, 0, 0.75);
+    --card-opacity: 0.97;
+
+    /* RGB values for rgba background opacity */
+    --card-bg-rgb: 45, 45, 45;
+    --navbar-bg-rgb: 31, 31, 31; 
+    --footer-bg-rgb: 31, 31, 31;
+}
+
+/* Fix for background utility classes in dark mode */
+[data-bs-theme="dark"] .bg-light {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .alert-info,
+[data-bs-theme="dark"] .bg-info {
+    background-color: rgba(13, 110, 253, 0.15) !important;
+    color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .alert-warning {
+    background-color: rgba(255, 193, 7, 0.15) !important;
+    color: var(--text-color) !important;
+}
+
+/* Ensure proper contrast for alert text in dark mode */
+[data-bs-theme="dark"] .alert {
+    border-color: var(--border-color);
+}
+
+/* Base elements */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--body-bg); /* Fallback color */
+    background-image: url("/static/image/Flux_Dev_Create_a_highquality_background_image_designed_specif_3.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Background overlay for better readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--overlay-color);
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+/* Enhanced Navbar */
+.navbar {
+    box-shadow: 0 2px 10px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    background-color: rgba(var(--navbar-bg-rgb, 255, 255, 255), 0.9);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary-color) !important;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: var(--navbar-toggler-icon);
+}
+
+[data-bs-theme="dark"] .navbar-light .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 10px 15px !important;
+    margin: 0 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
+/* Card styling */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(5px);
+    background-color: rgba(var(--card-bg-rgb, 255, 255, 255), var(--card-opacity));
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.card-header {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-body {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+/* Form elements */
+.form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+}
+
+.form-text {
+    color: var(--text-muted);
+}
+
+/* Image preview */
+.image-preview-container {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--preview-bg);
+    border-radius: 10px;
+    border: 2px dotted var(--preview-border);
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#image-preview {
+    max-height: 300px;
+    max-width: 100%;
+    display: none;
+}
+
+/* Result box styling */
+.result-box {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    padding: 20px !important;
+    transition: all 0.4s ease-in-out;
+    background: var(--card-bg);
+}
+
+.result-box.positive {
+    border-left: 5px solid var(--medical-red);
+}
+
+.result-box.negative {
+    border-left: 5px solid var(--medical-green);
+}
+
+/* Button styling */
+.btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.2);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-dark));
+    box-shadow: 0 6px 15px rgba(26, 115, 232, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Theme toggle switch */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.theme-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .theme-slider {
+    background-color: var(--primary-color);
+}
+
+input:focus + .theme-slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .theme-slider:before {
+    transform: translateX(30px);
+}
+
+.theme-icon {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+/* Custom file upload */
+.custom-file-upload {
+    border: 2px dashed var(--preview-border);
+    border-radius: 12px;
+    display: block;
+    padding: 25px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--preview-bg);
+    margin-bottom: 20px;
+}
+
+.custom-file-upload:hover {
+    border-color: var(--primary-color);
+    background: var(--medical-light-blue);
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--footer-bg);
+    backdrop-filter: blur(10px);
+    background-color: rgba(var(--footer-bg-rgb, 255, 255, 255), 0.9);
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Modal styling */
+.modal-content {
+    background-color: var(--modal-bg);
+    border-color: var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.modal-header {
+    border-bottom-color: var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+.modal-footer {
+    border-top-color: var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+/* Alert styling */
+.alert {
+    background-color: var(--alert-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+[data-bs-theme="light"] .loading-overlay {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.spinner-border {
+    width: 4rem;
+    height: 4rem;
+    color: var(--primary-color);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Additional helper class for container readability */
+.content-container {
+    background-color: rgba(var(--card-bg-rgb, 255, 255, 255), 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}

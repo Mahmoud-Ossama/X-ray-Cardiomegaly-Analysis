@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <h1 class="medical-heading mb-4">About This Project</h1>
+        
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">What is Cardiomegaly?</h2>
+            </div>
+            <div class="card-body">
+                <p>Cardiomegaly refers to an enlarged heart, which can be a sign of several conditions including:</p>
+                <ul>
+                    <li>High blood pressure</li>
+                    <li>Heart valve problems</li>
+                    <li>Cardiomyopathy (a disease of the heart muscle)</li>
+                    <li>Coronary artery disease</li>
+                    <li>Congenital heart defects</li>
+                </ul>
+                <p>Early detection of cardiomegaly can lead to improved patient outcomes through timely medical intervention.</p>
+            </div>
+        </div>
+        
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">AI in Medical Imaging</h2>
+            </div>
+            <div class="card-body">
+                <p>Artificial Intelligence has shown promising results in assisting radiologists and medical professionals in the analysis of medical images. Deep learning models can be trained to identify patterns in X-rays, MRIs, and CT scans that might indicate various medical conditions.</p>
+                
+                <p>Benefits of AI in medical imaging include:</p>
+                <ul>
+                    <li>Faster preliminary screening</li>
+                    <li>Assistance to radiologists in high-volume environments</li>
+                    <li>Potential for increased diagnostic accuracy</li>
+                    <li>Standardized analysis across different healthcare settings</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">About This Application</h2>
+            </div>
+            <div class="card-body">
+                <p>This Cardiomegaly Classifier is a project developed for the AI College Bioinformatics Department. It demonstrates how deep learning can be applied to medical image analysis.</p>
+                
+                <p>The application uses a convolutional neural network (CNN) trained on chest X-ray images to identify signs of heart enlargement. The model was trained using the <a href="https://www.kaggle.com/nih-chest-xrays/data" target="_blank">NIH Chest X-ray dataset</a>.</p>
+                
+                <div class="alert alert-info mt-3">
+                    <strong>Important:</strong> This application is for educational and research purposes only and should not be used for clinical diagnosis.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

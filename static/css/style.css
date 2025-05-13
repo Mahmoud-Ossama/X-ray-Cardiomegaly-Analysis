@@ -1,0 +1,102 @@
+:root {
+    --medical-blue: #1a73e8;
+    --medical-light-blue: #e8f0fe;
+    --medical-dark-gray: #444;
+    --medical-red: #d93025;
+    --medical-green: #188038;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--medical-dark-gray);
+    background-color: #f8f9fa;
+}
+
+/* Medical themed navbar */
+.medical-nav {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.medical-nav .navbar-brand {
+    font-weight: 600;
+    color: var(--medical-blue);
+}
+
+.medical-icon {
+    margin-right: 8px;
+}
+
+/* Headings */
+.medical-heading {
+    color: var(--medical-blue);
+    font-weight: 600;
+    border-bottom: 2px solid var(--medical-light-blue);
+    padding-bottom: 0.5rem;
+}
+
+/* Cards */
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+    border: none;
+}
+
+.card-header {
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--medical-blue);
+    border-color: var(--medical-blue);
+}
+
+.btn-primary:hover {
+    background-color: #0d62d0;
+    border-color: #0d62d0;
+}
+
+/* Result styling */
+.result-box {
+    transition: all 0.3s ease;
+}
+
+.bg-danger {
+    background-color: var(--medical-red) !important;
+}
+
+.bg-success {
+    background-color: var(--medical-green) !important;
+}
+
+.text-danger {
+    color: var(--medical-red) !important;
+}
+
+.text-success {
+    color: var(--medical-green) !important;
+}
+
+/* Accessibility improvements */
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(26, 115, 232, 0.25);
+}
+
+/* Responsive image display */
+.img-display {
+    max-height: 300px;
+    object-fit: contain;
+    width: auto;
+    margin: 0 auto;
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--medical-light-blue);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Helper classes */
+.text-small {
+    font-size: 0.875rem;
+}

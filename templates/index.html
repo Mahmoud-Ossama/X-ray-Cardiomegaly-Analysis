@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto text-center mb-4">
+        <h1 class="medical-heading mb-3">X-ray Cardiomegaly Analysis</h1>
+        <p class="lead">Upload a chest X-ray image to detect signs of heart enlargement using AI.</p>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Upload Form Section -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <h3 class="h5 mb-0"><i class="bi bi-cloud-upload me-2"></i>Upload X-ray Image</h3>
+            </div>
+            <div class="card-body">
+                <form action="/predict" method="post" enctype="multipart/form-data" id="upload-form" class="upload-form">
+                    <div class="mb-3">
+                        <label for="file" class="form-label fw-bold">Select chest X-ray image:</label>
+                        <div class="image-preview-container" id="preview-container">
+                            <div id="default-preview-text">
+                                <i class="bi bi-image fs-1 text-muted"></i>
+                                <p class="text-muted mt-2">Image preview will appear here</p>
+                            </div>
+                            <img id="image-preview" src="#" alt="Image Preview" class="img-fluid rounded">
+                        </div>
+                        <label class="custom-file-upload">
+                            <input type="file" class="form-control d-none" id="file" name="file" accept=".jpg,.jpeg,.png">
+                            <i class="bi bi-upload me-2"></i> Choose an X-ray image
+                        </label>
+                        <div class="form-text">
+                            <i class="bi bi-info-circle me-1"></i> Supported formats: JPG, JPEG, PNG
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg" data-bs-toggle="tooltip" data-bs-placement="top" title="Your image will be analyzed using AI">
+                            <i class="bi bi-search me-2"></i> Analyze Image
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-4 p-3 bg-light rounded">
+                    <h4 class="h6 mb-3">
+                        <i class="bi bi-info-circle me-2"></i>How it works:
+                    </h4>
+                    <ol class="small mb-0">
+                        <li>Select a clear chest X-ray image</li>
+                        <li>Our AI model will analyze the image for signs of cardiomegaly</li>
+                        <li>View the prediction result with confidence score</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Results/Example Section -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header {% if show_result %}bg-{{status_class}}{% else %}bg-info{% endif %} text-white">
+                <h3 class="h5 mb-0">
+                    {% if show_result %}
+                        <i class="bi bi-clipboard2-data me-2"></i>Analysis Result
+                    {% else %}
+                        <i class="bi bi-image me-2"></i>Example X-ray
+                    {% endif %}
+                </h3>
+            </div>
+            <div class="card-body text-center">
+                {% if show_result %}
+                    <img src="{{ image_data }}" alt="Uploaded X-ray" class="img-fluid mb-4 rounded shadow" style="max-height: 300px;">
+                    <div class="result-box">
+                        <h3 class="h4 text-{{status_class}}">
+                            {% if status_class == 'success' %}
+                                <i class="bi bi-check-circle me-2"></i>
+                            {% else %}
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                            {% endif %}
+                            {{ label }}
+                        </h3>
+                        <p class="mb-2">Confidence:</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-{{status_class}}" role="progressbar" 
+                                 style="width: {{ confidence.rstrip('%') }}%" 
+                                 aria-valuenow="{{ confidence.rstrip('%') }}" aria-valuemin="0" aria-valuemax="100">
+                                {{ confidence }}
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <img src="{{ example_image }}" alt="Example X-ray image" class="img-fluid mb-3 rounded shadow" style="max-height: 300px;">
+                    <div class="alert alert-info" role="alert">
+                        <i class="bi bi-info-circle me-2"></i>This is an example of a chest X-ray image. Upload your own image for analysis.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

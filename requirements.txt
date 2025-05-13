@@ -1,0 +1,16 @@
+# Cardiomegaly X-ray Classifier requirements
+
+# Web Framework
+Flask==2.3.2
+Werkzeug==2.3.6
+
+# Machine Learning
+tensorflow==2.12.0
+numpy==1.24.3
+
+# Image Processing
+Pillow==9.5.0
+
+# Other dependencies
+gunicorn==21.2.0  # For production deployment
+python-dotenv==1.0.0
