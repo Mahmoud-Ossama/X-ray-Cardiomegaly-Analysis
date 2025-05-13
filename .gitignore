@@ -29,11 +29,6 @@ ENV/
 instance/
 .webassets-cache
 
-# Tensorflow/Model files
-*.keras
-*.h5
-*.pb
-*.tflite
 
 # Logs
 logs/
