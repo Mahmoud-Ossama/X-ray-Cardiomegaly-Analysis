@@ -2,6 +2,9 @@
 
 A professional web application that uses artificial intelligence to analyze chest X-ray images and detect signs of cardiomegaly (enlarged heart).
 
+## Project Description
+A Flask web application that analyzes medical chest X-rays for cardiomegaly using AI, providing instant results with confidence scores through a responsive UI with dark/light mode support. The system processes uploaded images and classifies them as either positive or negative for heart enlargement.
+
 ## Features
 
 - Upload and analyze chest X-ray images
